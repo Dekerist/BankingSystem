@@ -3,6 +3,7 @@ public class InvestmentAccount extends Account implements InterestBearing {
     private final double interestRate = 0.05;
 
     public InvestmentAccount(int accountNumber, double balance, String branch) {
+
         super(accountNumber, balance, branch);
 
         if (balance < 500) {
@@ -12,17 +13,26 @@ public class InvestmentAccount extends Account implements InterestBearing {
         }
     }
 
+    @Override
     public double calculateInterest() {
         return balance * interestRate;
     }
 
+    @Override
     public void payInterest() {
-        balance += calculateInterest();
+
+        double interest = calculateInterest();
+
+        balance += interest;
+
+        recordTransaction("Interest Payment", interest);
+
         System.out.println("Investment interest paid successfully!");
     }
 
     @Override
     public void displayAccountDetails() {
+
         System.out.println("Account Type: Investment Account");
         System.out.println("Account Number: " + accountNumber);
         System.out.println("Balance: BWP " + balance);

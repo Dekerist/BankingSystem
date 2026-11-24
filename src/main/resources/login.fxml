@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx/25"
+      xmlns:fx="http://javafx.com/fxml/1"
+      alignment="CENTER"
+      spacing="15"
+      prefWidth="400"
+      prefHeight="350"
+      style="-fx-padding: 30; -fx-background-color: #0b1220;">
+
+    <Label text="BANKING SYSTEM"
+           style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: white;"/>
+
+    <Label text="Customer Login"
+           style="-fx-font-size: 16px; -fx-text-fill: white;"/>
+
+    <TextField fx:id="usernameField"
+               promptText="Enter username"
+               maxWidth="250"/>
+
+    <PasswordField fx:id="passwordField"
+                   promptText="Enter password"
+                   maxWidth="250"/>
+
+   <Button fx:id="loginButton"
+        text="LOGIN"
+        onAction="#handleLogin"
+        prefWidth="250"/>
+        
+    <Label fx:id="messageLabel"
+           text=""
+           style="-fx-text-fill: white;"/>
+
+</VBox>

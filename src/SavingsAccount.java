@@ -6,26 +6,40 @@ public class SavingsAccount extends Account implements InterestBearing {
         super(accountNumber, balance, branch);
     }
 
+    @Override
     public double calculateInterest() {
         return balance * interestRate;
     }
 
+    @Override
     public void payInterest() {
-        balance += calculateInterest();
+
+        double interest = calculateInterest();
+
+        balance += interest;
+
+        recordTransaction("Interest Payment", interest);
+
         System.out.println("Savings interest paid successfully!");
     }
 
     @Override
     public void withdraw(double amount) {
-        System.out.println("Withdrawals are not allowed on Savings Accounts.");
+
+        recordFailedTransaction("Withdrawal", amount);
+
+        System.out.println(
+            "Withdrawals are not allowed on Savings Accounts."
+        );
     }
 
     @Override
     public void displayAccountDetails() {
+
         System.out.println("Account Type: Savings Account");
         System.out.println("Account Number: " + accountNumber);
         System.out.println("Balance: BWP " + balance);
         System.out.println("Branch: " + branch);
         System.out.println("Monthly Interest Rate: 0.05%");
     }
-}  
+}
